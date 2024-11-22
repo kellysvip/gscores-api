@@ -3,11 +3,8 @@ import { RequestMethod } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { useContainer } from 'class-validator';
-import * as dotenv from 'dotenv';
 
 import { AppModule } from './app.module';
-
-dotenv.config();
 
 process.on('uncaughtException', (err) => {
   process.exit(1);
@@ -20,7 +17,12 @@ process.on('unhandledRejection', (err: any) => {
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
-  app.enableCors();
+  app.enableCors({
+    origin: 'http://localhost:3030/',
+    methods: 'GET',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true,
+  });
 
   app.set('json escape', true);
   app.setGlobalPrefix('api', {
@@ -42,6 +44,6 @@ async function bootstrap() {
   });
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(3030);
+  await app.listen(3030); // config.PORT || 
 }
 bootstrap();
