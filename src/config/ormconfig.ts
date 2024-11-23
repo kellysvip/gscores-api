@@ -8,8 +8,8 @@ dotenv.config();
 export const ormConfig = {
   type: 'postgres',
   host: process.env.POSTGRES_HOST || 'localhost',
-  port: parseInt(process.env.POSTGRES_PORT || '5434', 10),
-  database: process.env.POSTGRES_DBNAME || 'product-api',
+  port: parseInt(process.env.POSTGRES_PORT || '5432', 10),
+  database: process.env.POSTGRES_DBNAME || 'gscores-api',
   username: process.env.POSTGRES_USERNAME || 'root',
   password: process.env.POSTGRES_PASSWORD || 'root',
   entities: [path.join(__dirname, '../../src/**/*/*.entity.ts')],
