@@ -18,9 +18,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:unit": "NODE_ENV=test jest --runInBand --config ./src/jest-unit-tests.json",
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./src/config/ormconfig.ts",
-    "typeorm:generate-migration": "npm run typeorm -- -d ./src/config/ormconfig.ts migration:generate ./database/migrations/$npm_config_name"
+    "typeorm:generate-migration": "npm run typeorm -- -d ./src/config/ormconfig.ts migration:generate ./database/migrations/$npm_config_name",
+    "insert-students": "ts-node scripts/insert-students.ts \"$npm_config_filepath\" \"$npm_config_sheetname\""
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -32,9 +34,11 @@
     "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",
     "pg": "^8.13.1",
+    "pg-mem": "^3.0.3",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",

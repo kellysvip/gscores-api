@@ -44,6 +44,6 @@ async function bootstrap() {
   });
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(3030); // config.PORT || 
+  await app.listen(3030); // config.PORT ||
 }
 bootstrap();

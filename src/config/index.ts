@@ -9,12 +9,10 @@ const sampleJwtPublicKey =
   'PwIDAQAB\n' +
   '-----END PUBLIC KEY-----';
 
-
 export const config = {
   PROJECT_NAME: process.env.PROJECT_NAME || 'product-api',
   PORT: parseInt(process.env.PORT || '3032', 10),
   JWT: {
-    PUBLIC_KEY: process.env.JWT_PUBLIC_KEY || sampleJwtPublicKey
+    PUBLIC_KEY: process.env.JWT_PUBLIC_KEY || sampleJwtPublicKey,
   },
-
 };

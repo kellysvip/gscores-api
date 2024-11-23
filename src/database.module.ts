@@ -10,7 +10,7 @@ import { ormConfig } from './config/ormconfig';
         ({
           ...ormConfig,
           autoLoadEntities: true,
-        } as TypeOrmModuleOptions),
+        }) as TypeOrmModuleOptions,
     }),
   ],
 })
