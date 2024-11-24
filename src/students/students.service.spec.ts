@@ -204,47 +204,6 @@ describe('[students] Students Service', () => {
         ],
       ]);
     });
-
-    //   const error = new EntityNotFoundError(DeliveryEntity, {
-    //     id: deliveries[0].id,
-    //   });
-
-    //   findStudentByIdSpy.mockRejectedValue(error);
-
-    //   await expect(
-    //     studentsService.getStudentById(userPayload, deliveries[0].id),
-    //   ).rejects.toThrow(error);
-
-    //   expect(findStudentByIdSpy.mock.calls).toEqual([
-    //     [
-    //       {
-    //         where: {
-    //           id: deliveries[0].id,
-    //         },
-    //         select: {
-    //           address: true,
-    //           approvedAt: true,
-    //           approvedBy: true,
-    //           contractId: true,
-    //           createdAt: true,
-    //           deliveryStatus: true,
-    //           description: true,
-    //           finishedAt: true,
-    //           id: true,
-    //           name: true,
-    //           otherRequirement: true,
-    //           receiverName: true,
-    //           receiverPhone: true,
-    //           requestedBy: true,
-    //           updatedAt: true,
-    //           updatedBy: true,
-    //           verifiedAt: true,
-    //           verifiedBy: true,
-    //         },
-    //       },
-    //     ],
-    //   ]);
-    // });
   });
 
   describe('#getGradeOfStudentsBySubject', () => {

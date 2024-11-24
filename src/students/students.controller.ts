@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query, UseFilters, UsePipes } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  UseFilters,
+  UsePipes,
+} from '@nestjs/common';
 import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 import validationPipe from '../validation-pipe';
