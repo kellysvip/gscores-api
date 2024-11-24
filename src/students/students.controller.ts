@@ -1,4 +1,11 @@
-import { Controller, Get, Param, Query, UsePipes } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Query,
+  UseFilters,
+  UsePipes,
+} from '@nestjs/common';
 import { ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 import validationPipe from '../validation-pipe';
@@ -12,9 +19,11 @@ import {
 import { GetStudentByIdParams } from './dto/get-student-by-id';
 import { GetGradeOfStudentQueries } from './dto/get-grade-of-students.dto';
 import { EntityName } from '../constants/enums/entity-name.enum';
+import { AllExceptionsFilter } from '../errors/exception-filter';
 
-@Controller(EntityName.STUDENTS)
 @UsePipes(validationPipe())
+@UseFilters(AllExceptionsFilter)
+@Controller(EntityName.STUDENTS)
 @ApiTags('Students')
 export class StudentsController {
   constructor(private readonly studentsService: StudentsService) {}

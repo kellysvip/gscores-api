@@ -70,12 +70,12 @@ export class StudentsService {
       )
       .addSelect(
         `${EntityName.STUDENTS}.${SubjectEnum.MATH} + ${EntityName.STUDENTS}.${SubjectEnum.PHYSICS} + ${EntityName.STUDENTS}.${SubjectEnum.CHEMISTRY}`,
-        `total_core`,
+        `total_score`,
       )
       .where(`${EntityName.STUDENTS}.${SubjectEnum.MATH} IS NOT NULL`)
       .andWhere(`${EntityName.STUDENTS}.${SubjectEnum.PHYSICS} IS NOT NULL`)
       .andWhere(`${EntityName.STUDENTS}.${SubjectEnum.CHEMISTRY} IS NOT NULL`)
-      .orderBy('total_core', SortingOption.DESC)
+      .orderBy('total_score', SortingOption.DESC)
       .limit(10)
       .getRawMany();
   }

@@ -5,6 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { useContainer } from 'class-validator';
 
 import { AppModule } from './app.module';
+import { config } from './config';
 
 process.on('uncaughtException', (err) => {
   process.exit(1);
@@ -18,7 +19,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   app.enableCors({
-    origin: 'http://localhost:3030/',
+    origin: config.CORS,
     methods: 'GET',
     allowedHeaders: 'Content-Type,Authorization',
     credentials: true,
@@ -44,6 +45,6 @@ async function bootstrap() {
   });
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
-  await app.listen(3030); // config.PORT || 
+  await app.listen(config.PORT);
 }
 bootstrap();
